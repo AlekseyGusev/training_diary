@@ -6,7 +6,10 @@ import com.example.training_diary.model.Exercise;
 import com.example.training_diary.service.WorkoutService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping()
@@ -41,12 +44,19 @@ public class WorkoutController {
     }
 
     @GetMapping("/create_workout_new")
-    public String createWorkoutForm () {
+    public String createWorkoutForm (@ModelAttribute("newExercise") Exercise exercise) {
         return "create_workout_new";
     }
 
     @PostMapping("/create_workout_new")
-    public String createWorkoutFormSubmit (@ModelAttribute("exercise") Exercise exercise){
+    public String createWorkoutFormSubmit (@ModelAttribute("newExercise") @Valid Exercise exercise, BindingResult bindingResult){
+
+        System.out.println(exercise);
+
+        if(bindingResult.hasErrors()) {
+            return "create_workout_new";
+        }
+
         workoutService.createWorkout(exercise);
         return "redirect:/create_workout";
     }
@@ -58,7 +68,12 @@ public class WorkoutController {
     }
 
     @PatchMapping("/{id}")
-    public String updateWorkout(@ModelAttribute("exercise") Exercise exercise, @PathVariable("id") String exerciseName) {
+    public String updateWorkout(@ModelAttribute("exercise") @Valid Exercise exercise, BindingResult bindingResult, @PathVariable("id") String exerciseName) {
+
+        if(bindingResult.hasErrors()) {
+            return "/edit";
+        }
+
         workoutService.updateWorkout(exerciseName, exercise);
         return "redirect:/create_workout";
     }

@@ -26,16 +26,19 @@
                 <div>
                     <label for="weight">Weight</label>
                     <input type="text" id="weight" th:field="*{weight}" name="weight" placeholder="Weight..">
+                    <div style="color: red" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" >Error</div>
                 </div>
                 <br>
                 <div>
                     <label for="sets">Sets</label>
                     <input type="text" id="sets" th:field="*{sets}" name="sets" placeholder="Sets..">
+                    <div style="color: red" th:if="${#fields.hasErrors('sets')}" th:errors="*{sets}" >Error</div>
                 </div>
                 <br>
                 <div>
                     <label for="reps">Reps</label>
                     <input type="text" id="reps" th:field="*{reps}" name="reps" placeholder="Reps..">
+                    <div style="color: red" th:if="${#fields.hasErrors('reps')}" th:errors="*{reps}" >Error</div>
                 </div>
                 <br>
                 <div>

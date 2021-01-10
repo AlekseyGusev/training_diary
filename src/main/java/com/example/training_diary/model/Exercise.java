@@ -2,6 +2,10 @@ package com.example.training_diary.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class Exercise {
@@ -9,17 +13,30 @@ public class Exercise {
     private LocalDate date;
     private String exerciseGroup;
     private String exerciseName;
-    private double weight;
+
+    @Min(value = 1, message = "Weight should be greater than 0")
+    private int weight;
+    @Min(value = 1, message = "Sets should be greater than 0")
     private int sets;
+    @Min(value = 1, message = "Reps should be greater than 0")
     private int reps;
 
-    public Exercise(String exerciseGroup, String exerciseName, double weight, int sets, int reps) {
+    public Exercise(){}
+
+    public Exercise(@NotEmpty String exerciseGroup, String exerciseName, int weight, int sets, int reps) {
         this.exerciseGroup = exerciseGroup;
         this.exerciseName = exerciseName;
         this.weight = weight;
         this.sets = sets;
         this.reps = reps;
-        this.date = LocalDate.now();
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     public String getExerciseGroup() {
@@ -38,11 +55,11 @@ public class Exercise {
         this.exerciseName = exerciseName;
     }
 
-    public double getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
@@ -60,10 +77,6 @@ public class Exercise {
 
     public void setReps(int reps) {
         this.reps = reps;
-    }
-
-    public LocalDate getDate() {
-        return date;
     }
 
     @Override
