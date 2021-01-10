@@ -17,6 +17,10 @@ public class WorkoutService {
     public void saveWorkout(Exercise exercise) {
         workoutRepository.createWorkout(exercise);
     }
+
+    public void updateExercise (Exercise exercise) {
+
+    }
 }
 
 
