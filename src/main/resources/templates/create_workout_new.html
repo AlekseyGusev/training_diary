@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>workout</title>
+<!--    <link rel="stylesheet" type="text/css" href="create_css.css">-->
+</head>
+<body>
+    <div class="container">
+        <div class="create-container">
+            <div class="create">
+                <form action="" method="post">
+                    <label for="exerciseGroup">Group</label>
+                    <select class="input-label" id="exerciseGroup" name="exerciseGroup">
+                        <option value="CHEST">CHEST</option>
+                        <option value="BACK">BACK</option>
+                        <option value="LEGS">LEGS</option>
+                    </select>
+                    <label for="exerciseName">Exercise</label>
+                    <select class="input-label" id="exerciseName" name="exerciseName">
+                        <option value="Bench_Press">Bench_Press</option>
+                        <option value="Pull_Ups">Pull_Ups</option>
+                        <option value="Squads">Squads</option>
+                    </select>
+
+                    <label for="weight">Weight</label>
+                    <input class="input-label" type="text" id="weight" name="weight" placeholder="Weight..">
+
+                    <label for="sets">Sets</label>
+                    <input class="input-label" type="text" id="sets" name="sets" placeholder="Sets..">
+
+                    <label for="reps">Reps</label>
+                    <input class="input-label" type="text" id="reps" name="reps" placeholder="Reps..">
+
+                    <div>
+                        <input class="submit" type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

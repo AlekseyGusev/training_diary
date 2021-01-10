@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+<!--    <link rel="stylesheet" th:href="@{create_css.css}">-->
+</head>
+<body>
+<div class="container">
+    <div class="main-buttons">
+        <a href="/create_workout_new" type="button" class="btn">Add exercise</a>
+        <a href="/main" type="button" class="btn">Main menu</a>
+        <a href="" type="button" class="btn">Start workout</a>
+    </div>
+    <div class="table">
+        <div class="table-container">
+            <table class="table1">
+                <tr>
+                    <th class="table-header">EXERCISE</th>
+                    <th class="table-header">WEIGHT</th>
+                    <th class="table-header">SETS</th>
+                    <th class="table-header">REPS</th>
+                    <th class="table-header">EDIT</th>
+                    <th class="table-header">DELETE</th>
+                </tr>
+                <tr th:each="next : ${workout}">
+                    <td class="table-data" th:text="${next.getExerciseName()}">Exercise</td>
+                    <td class="table-data" th:text="${next.getWeight()}">Weight</td>
+                    <td class="table-data" th:text="${next.getSets()}">Sets</td>
+                    <td class="table-data" th:text="${next.getReps()}">Reps</td>
+                    <td class="table-data"> <a th:href="@{{id}/edit(id=${next.getExerciseName()})}">Edit</a></td>
+                    <td class="table-data"> <a th:href="@{/delete/{id}(id=${next.getExerciseName()})}">Delete</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
