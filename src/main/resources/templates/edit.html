@@ -3,50 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Editing exercise</title>
+    <link href="../static/css/create_form.css" th:href="@{/css/create_form.css}" rel="stylesheet" />
 </head>
 <body>
-<div>
-    <div>
-        <div>
-            <form th:method="PATCH" th:action="@{/{id}(id=${exercise.getExerciseName()})}" th:object="${exercise}">
-                <div>
-                    <label for="exerciseGroup">Group</label>
-                    <select id="exerciseGroup" th:field="*{exerciseGroup}" name="exerciseGroup">
-                        <option th:value="*{exerciseGroup}" th:text="*{exerciseGroup}" ></option>
-                    </select>
-                </div>
-                <br>
-                <div>
-                    <label for="exerciseName">Exercise</label>
-                    <select id="exerciseName" th:field="*{exerciseName}" name="exerciseName">
-                        <option th:value="*{exerciseName}" th:text="*{exerciseName}" ></option>
-                    </select>
-                </div>
-                <br>
-                <div>
-                    <label for="weight">Weight</label>
-                    <input type="text" id="weight" th:field="*{weight}" name="weight" placeholder="Weight..">
-                    <div style="color: red" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" >Error</div>
-                </div>
-                <br>
-                <div>
-                    <label for="sets">Sets</label>
-                    <input type="text" id="sets" th:field="*{sets}" name="sets" placeholder="Sets..">
-                    <div style="color: red" th:if="${#fields.hasErrors('sets')}" th:errors="*{sets}" >Error</div>
-                </div>
-                <br>
-                <div>
-                    <label for="reps">Reps</label>
-                    <input type="text" id="reps" th:field="*{reps}" name="reps" placeholder="Reps..">
-                    <div style="color: red" th:if="${#fields.hasErrors('reps')}" th:errors="*{reps}" >Error</div>
-                </div>
-                <br>
-                <div>
-                    <input type="submit" value="Update">
-                </div>
-            </form>
+    <div class="container">
+        <div class="create-container">
+            <div class="create">
+                <form th:method="PATCH" th:action="@{/{id}(id=${exercise.getId()})}" th:object="${exercise}">
+                    <div>
+                        <label for="exerciseGroup">Group</label>
+                        <select class="input-label" id="exerciseGroup" th:field="*{exerciseGroup}" name="exerciseGroup">
+                            <option th:value="*{exerciseGroup}" th:text="*{exerciseGroup}" ></option>
+                        </select>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="exerciseName">Exercise</label>
+                        <select class="input-label" id="exerciseName" th:field="*{exerciseName}" name="exerciseName">
+                            <option th:value="*{exerciseName}" th:text="*{exerciseName}" ></option>
+                        </select>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="weight">Weight</label>
+                        <input class="input-label" type="text" id="weight" th:field="*{weight}" name="weight" placeholder="Weight..">
+                        <div style="color: red" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" >Error</div>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="sets">Sets</label>
+                        <input class="input-label" type="text" id="sets" th:field="*{w_sets}" name="sets" placeholder="Sets..">
+                        <div style="color: red" th:if="${#fields.hasErrors('w_sets')}" th:errors="*{w_sets}" >Error</div>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="reps">Reps</label>
+                        <input class="input-label" type="text" id="reps" th:field="*{w_reps}" name="reps" placeholder="Reps..">
+                        <div style="color: red" th:if="${#fields.hasErrors('w_reps')}" th:errors="*{w_reps}" >Error</div>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="submit" value="Update">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </body>
 </html>

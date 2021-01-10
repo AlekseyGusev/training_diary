@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>New workout</title>
-<!--    <link rel="stylesheet" type="text/css" href="create_css.css">-->
+    <link href="../static/css/create_form.css" th:href="@{/css/create_form.css}" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        <div>
-            <div>
+    <div class="container">
+        <div class="create-container">
+            <div class="create">
                 <form th:action="@{/create_workout_new}" th:method="POST" th:object="${newExercise}">
                     <div>
                         <label for="exerciseGroup">Group</label>
-                        <select id="exerciseGroup" name="exerciseGroup">
+                        <select class="input-label" id="exerciseGroup" name="exerciseGroup">
                             <option value="CHEST">CHEST</option>
                             <option value="BACK">BACK</option>
                             <option value="LEGS">LEGS</option>
@@ -21,7 +21,7 @@
                     <br>
                     <div>
                         <label for="exerciseName">Exercise</label>
-                        <select id="exerciseName" name="exerciseName">
+                        <select class="input-label" id="exerciseName" name="exerciseName">
                             <option value="Bench_Press">Bench_Press</option>
                             <option value="Pull_Ups">Pull_Ups</option>
                             <option value="Squads">Squads</option>
@@ -30,24 +30,24 @@
                     <br>
                     <div>
                         <label for="weight">Weight</label>
-                        <input type="text" id="weight" th:field="*{weight}" placeholder="Weight..">
+                        <input class="input-label" type="text" id="weight" th:field="*{weight}" placeholder="Weight..">
                         <div style="color: red" th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" >Error</div>
                     </div>
                     <br>
                     <div>
                         <label for="sets">Sets</label>
-                        <input type="text" id="sets" th:field="*{sets}" placeholder="Sets..">
-                        <div style="color: red" th:if="${#fields.hasErrors('sets')}" th:errors="*{sets}" >Error</div>
+                        <input class="input-label" type="text" id="sets" th:field="*{w_sets}" placeholder="Sets..">
+                        <div style="color: red" th:if="${#fields.hasErrors('w_sets')}" th:errors="*{w_sets}" >Error</div>
                     </div>
                     <br>
                     <div>
                         <label for="reps">Reps</label>
-                        <input type="text" id="reps" th:field="*{reps}" placeholder="Reps..">
-                        <div style="color: red" th:if="${#fields.hasErrors('reps')}" th:errors="*{reps}" >Error</div>
+                        <input class="input-label" type="text" id="reps" th:field="*{w_reps}" placeholder="Reps..">
+                        <div style="color: red" th:if="${#fields.hasErrors('w_reps')}" th:errors="*{w_reps}" >Error</div>
                     </div>
                     <br>
                     <div>
-                        <input type="submit" value="Submit">
+                        <input class="submit" type="submit" value="Submit">
                     </div>
                 </form>
             </div>

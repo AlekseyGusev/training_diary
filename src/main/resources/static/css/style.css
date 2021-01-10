@@ -1,0 +1,24 @@
+body {
+    color: #fff;
+    background: hsl(227, 10%, 10%);
+    /*font: 300 1em "Fira Sans", sans-serif;*/
+    /*justify-content: center;*/
+    /*display: flex;*/
+}
+
+.container {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.btn {
+    border-radius: 5px;
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+

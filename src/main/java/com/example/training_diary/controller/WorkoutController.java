@@ -1,7 +1,6 @@
 package com.example.training_diary.controller;
 
 
-import com.example.training_diary.dao.WorkoutRepository;
 import com.example.training_diary.model.Exercise;
 import com.example.training_diary.service.WorkoutService;
 import org.springframework.stereotype.Controller;
@@ -32,8 +31,8 @@ public class WorkoutController {
     }
 
     @GetMapping("/exercise/{id}")
-    public String showExerciseByName (@PathVariable("id") String exerciseName, Model model) {
-        model.addAttribute("exercise", workoutService.showExerciseByName(exerciseName));
+    public String showExerciseById (@PathVariable("id") int id, Model model) {
+        model.addAttribute("exercise", workoutService.showExerciseById(id));
         return "show_exercise";
     }
 
@@ -51,8 +50,6 @@ public class WorkoutController {
     @PostMapping("/create_workout_new")
     public String createWorkoutFormSubmit (@ModelAttribute("newExercise") @Valid Exercise exercise, BindingResult bindingResult){
 
-        System.out.println(exercise);
-
         if(bindingResult.hasErrors()) {
             return "create_workout_new";
         }
@@ -62,25 +59,25 @@ public class WorkoutController {
     }
 
     @GetMapping("/{id}/edit")
-    public String exerciseEditing(Model model, @PathVariable("id") String exerciseName) {
-        model.addAttribute("exercise", workoutService.showExerciseByName(exerciseName));
+    public String exerciseEditing(Model model, @PathVariable("id") int id) {
+        model.addAttribute("exercise", workoutService.showExerciseById(id));
         return "/edit";
     }
 
     @PatchMapping("/{id}")
-    public String updateWorkout(@ModelAttribute("exercise") @Valid Exercise exercise, BindingResult bindingResult, @PathVariable("id") String exerciseName) {
+    public String updateWorkout(@ModelAttribute("exercise") @Valid Exercise exercise, BindingResult bindingResult, @PathVariable("id") int id) {
 
         if(bindingResult.hasErrors()) {
             return "/edit";
         }
 
-        workoutService.updateWorkout(exerciseName, exercise);
+        workoutService.updateWorkout(id, exercise);
         return "redirect:/create_workout";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteExercise(@PathVariable("id") String exerciseName) {
-        workoutService.deleteExercise(exerciseName);
+    public String deleteExercise(@PathVariable("id") int id) {
+        workoutService.deleteExercise(id);
         return "redirect:/create_workout";
     }
 }

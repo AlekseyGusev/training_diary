@@ -1,34 +1,42 @@
 package com.example.training_diary.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.tomcat.jni.Local;
 
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Exercise {
 
-    private LocalDate date;
+    private int id;
+    LocalDate date;
     private String exerciseGroup;
     private String exerciseName;
-
-    @Min(value = 1, message = "Weight should be greater than 0")
+    @Min(value = 1, message = "Should be greater than 0")
     private int weight;
-    @Min(value = 1, message = "Sets should be greater than 0")
-    private int sets;
-    @Min(value = 1, message = "Reps should be greater than 0")
-    private int reps;
+    @Min(value = 1, message = "Should be greater than 0")
+    private int w_sets;
+    @Min(value = 1, message = "Should be greater than 0")
+    private int w_reps;
 
     public Exercise(){}
 
-    public Exercise(@NotEmpty String exerciseGroup, String exerciseName, int weight, int sets, int reps) {
+    public Exercise(int id, LocalDate date, String exerciseGroup, String exerciseName, @Min(value = 1, message = "Should be greater than 0") int weight, @Min(value = 1, message = "Should be greater than 0") int w_sets, @Min(value = 1, message = "Should be greater than 0") int w_reps) {
+        this.id = id;
+        this.date = date;
         this.exerciseGroup = exerciseGroup;
         this.exerciseName = exerciseName;
         this.weight = weight;
-        this.sets = sets;
-        this.reps = reps;
+        this.w_sets = w_sets;
+        this.w_reps = w_reps;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public LocalDate getDate() {
@@ -63,31 +71,32 @@ public class Exercise {
         this.weight = weight;
     }
 
-    public int getSets() {
-        return sets;
+    public int getW_sets() {
+        return w_sets;
     }
 
-    public void setSets(int sets) {
-        this.sets = sets;
+    public void setW_sets(int w_sets) {
+        this.w_sets = w_sets;
     }
 
-    public int getReps() {
-        return reps;
+    public int getW_reps() {
+        return w_reps;
     }
 
-    public void setReps(int reps) {
-        this.reps = reps;
+    public void setW_reps(int w_reps) {
+        this.w_reps = w_reps;
     }
 
     @Override
     public String toString() {
         return "Exercise{" +
-                "date=" + date +
+                "id=" + id +
+                ", date=" + date +
                 ", exerciseGroup='" + exerciseGroup + '\'' +
                 ", exerciseName='" + exerciseName + '\'' +
                 ", weight=" + weight +
-                ", sets=" + sets +
-                ", reps=" + reps +
+                ", w_sets=" + w_sets +
+                ", w_reps=" + w_reps +
                 '}';
     }
 }

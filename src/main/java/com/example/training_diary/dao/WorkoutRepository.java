@@ -8,8 +8,8 @@ public interface WorkoutRepository {
 
     void createWorkout (Exercise exercise);
     List<Exercise> showWorkout ();
-    Exercise showExerciseByName(String exerciseName);
-    void updateWorkout (String exerciseName, Exercise exercise);
-    void deleteExercise (String exerciseName);
+    Exercise showExerciseById(int id);
+    void updateWorkout (int id, Exercise exercise);
+    void deleteExercise (int id);
 
 }

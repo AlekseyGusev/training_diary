@@ -1,0 +1,87 @@
+body {
+    color: #fff;
+    background: hsl(227, 10%, 10%);
+    /*font: 300 1em "Fira Sans", sans-serif;*/
+    /*justify-content: center;*/
+    /*display: flex;*/
+}
+
+.container {
+    text-align: left;
+    margin-top: 20px;
+}
+.btn {
+    border-radius: 5px;
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 5px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.btn1 {
+    color: #a972cb;
+    border-color: #a972cb;
+}
+.btn1:hover {
+    box-shadow: #a972cb inset 0 0 0 50px;
+    transition: 0.25s;
+    color: white;
+}
+
+.btn2{
+    color: #ef6eae;
+    border-color: #ef6eae;
+}
+.btn2:hover {
+    box-shadow: #ef6eae inset 0 0 0 50px;
+    transition: 0.25s;
+    color: white;
+}
+.btn3{
+    color: #ff7f82;
+    border-color: #ff7f82;
+}
+.btn3:hover {
+    box-shadow: #ff7f82 inset 0 0 0 50px;
+    transition: 0.25s;
+    color: white;
+}
+.btn4{
+    color: #ffa260;
+    border-color: #ffa260;
+}
+.btn4:hover {
+    box-shadow: #ffa260 inset 0 0 0 50px;
+    transition: 0.25s;
+    color: white;
+}
+.btn5{
+    color: #e4cb58;
+    border-color: #e4cb58;
+}
+.btn5:hover {
+    box-shadow: #e4cb58 inset 0 0 0 50px;
+    transition: 0.25s;
+    color: white;
+}
+.btn6{
+    color: #8fc866;
+    border-color: #8fc866;
+}
+.btn6:hover {
+    box-shadow: #8fc866 inset 0 0 0 50px;
+    transition: 0.25s;
+    color: white;
+}
+.btn7{
+    color: #19bc8b;
+    border-color: #19bc8b;
+}
+.btn7:hover {
+    box-shadow: #19bc8b inset 0 0 0 50px;
+    transition: 0.25s;
+    color: white;
+}

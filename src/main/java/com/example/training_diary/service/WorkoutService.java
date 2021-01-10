@@ -16,8 +16,8 @@ public class WorkoutService {
         this.workoutRepository = workoutRepository;
     }
 
-    public Exercise showExerciseByName (String exerciseName) {
-        return workoutRepository.showExerciseByName(exerciseName);
+    public Exercise showExerciseById (int id) {
+        return workoutRepository.showExerciseById(id);
     }
 
     public List<Exercise> showWorkout (){
@@ -28,12 +28,12 @@ public class WorkoutService {
         workoutRepository.createWorkout(exercise);
     }
 
-    public void updateWorkout (String exerciseName, Exercise exercise){
-        workoutRepository.updateWorkout(exerciseName, exercise);
+    public void updateWorkout (int id, Exercise exercise){
+        workoutRepository.updateWorkout(id, exercise);
     }
 
-    public void deleteExercise (String exerciseName){
-        workoutRepository.deleteExercise(exerciseName);
+    public void deleteExercise (int id){
+        workoutRepository.deleteExercise(id);
     }
 
 }
