@@ -5,12 +5,10 @@ body {
 }
 
 .container {
-    /*text-align: left;*/
     margin: 20px;
 }
 
 .create-container {
-    /*background-color: coral;*/
     padding: 5px;
     margin: 20px;
 }

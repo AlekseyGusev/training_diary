@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Main Page</title>
-    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-    <div class="container">
-        <div class="main-btn-containers">
-            <a href="/training_diary" type="button" class="btn">Training diary</a>
-        </div>
-        <div class="main-btn-containers">
-            <a href="/create_workout" type="button" class="btn">Create workout</a>
-        </div>
-        <div class="main-btn-containers">
-            <a href="" type="button" class="btn">BUTTON</a>
-        </div>
-        <div class="main-btn-containers">
-            <a href="" type="button" class="btn">BUTTON</a>
-        </div>
-    </div>
+    <!-- <p class="title" data-item='WORKOUT'>workout</p> -->
+
+    <section>
+        <nav class="navigation">
+            <ul class="menu">
+                <li class="menuitem"><a class="a" href="/training_diary" data-item="Diary">Diary</a></li>
+                <li class="menuitem"><a class="a" href="/create_workout" data-item="Workout">Workout</a></li>
+                <li class="menuitem"><a class="a" href="#" data-item="Button">Button</a></li>
+                <li class="menuitem"><a class="a" href="#" data-item="Button">Button</a></li>
+                <li class="menuitem"><a class="a" href="#" data-item="Button">Button</a></li>
+            </ul>
+        </nav>
+
+    </section>
 </body>
 </html>

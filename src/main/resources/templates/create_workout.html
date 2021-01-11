@@ -3,42 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Main Page</title>
-    <link href="../static/css/create_workout.css" th:href="@{/css/create_workout.css}" rel="stylesheet" />
+    <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-<div class="container">
-    <div class="btn-container">
-        <a class="btn" href="/create_workout_new" type="button">Add exercise</a>
-        <a class="btn" href="/main" type="button">Main menu</a>
-        <a class="btn" href="" type="button">Start workout</a>
-    </div>
-    <div class="table">
-        <div class="table-container">
-            <table class="table1">
-                <tr>
-                    <th class="table-header">N</th>
-                    <th class="table-header">DATE</th>
-                    <th class="table-header">GROUP</th>
-                    <th class="table-header">EXERCISE</th>
-                    <th class="table-header">WEIGHT</th>
-                    <th class="table-header">SETS</th>
-                    <th class="table-header">REPS</th>
-                    <th class="table-header">EDIT</th>
-                    <th class="table-header">DELETE</th>
-                </tr>
-                <tr th:each="next : ${workout}">
-                    <td class="table-data" th:text="${next.getId()}">№</td>
-                    <td class="table-data"  th:text="${next.getDate()}">Date</td>
-                    <td class="table-data"  th:text="${next.getExerciseGroup()}">Exercise</td>
-                    <td class="table-data"  th:text="${next.getExerciseName()}">Exercise</td>
-                    <td class="table-data"  th:text="${next.getWeight()}">Weight</td>
-                    <td class="table-data"  th:text="${next.getW_sets()}">Sets</td>
-                    <td class="table-data"  th:text="${next.getW_reps()}">Reps</td>
-                    <td class="table-data" > <a th:href="@{{id}/edit(id=${next.getId()})}">Edit</a></td>
-                    <td class="table-data" > <a th:href="@{/delete/{id}(id=${next.getId()})}">Delete</a></td>
-                </tr>
-            </table>
-        </div>
+    <section>
+        <nav class="navigation">
+            <ul class="menu">
+                <li class="menuitem"><a class="a" href="/main" data-item="HOME">HOME</a></li>
+                <li class="menuitem"><a class="a" href="/create_workout_new" data-item="CREATE">CREATE</a></li>
+            </ul>
+        </nav>
+
+    </section>
+
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+            <tr>
+                <th>DATE</th>
+                <th>GROUP</th>
+                <th>EXERCISE</th>
+                <th>WEIGHT</th>
+                <th>SETS</th>
+                <th>REPS</th>
+                <th>EDIT</th>
+                <th>DELETE</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="next : ${workout}">
+                <td th:text="${next.getDate()}">Date</td>
+                <td th:text="${next.getExerciseGroup()}">Exercise</td>
+                <td th:text="${next.getExerciseName()}">Exercise</td>
+                <td th:text="${next.getWeight()}">Weight</td>
+                <td th:text="${next.getW_sets()}">Sets</td>
+                <td th:text="${next.getW_reps()}">Reps</td>
+                <td> <a th:href="@{{id}/edit(id=${next.getId()})}">Edit</a></td>
+                <td> <a th:href="@{/delete/{id}(id=${next.getId()})}">Delete</a></td>
+            </tr>
+            <tbody>
+        </table>
     </div>
 </div>
 </body>
